@@ -59,7 +59,7 @@ user_prompt() {
   echo "$current_count" > "$count_file"   
 
   # Add the user to the list file
-  echo "$name" >> "Database/$team/$shift/list"
+  echo "$name, $shift, $time" >> "Database/$team/$shift/list"
 
   # Display
   echo -e "\n--- User Added Successfully ---"
