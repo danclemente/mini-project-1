@@ -1,0 +1,12 @@
+Database Folder Tree:
+Database
+  <team>
+    <shifts>
+      <list>
+      <count>
+      
+List Data:
+<name>, <shift>, <time>
+
+Count Data:
+Number of people in the shift

@@ -1,0 +1,20 @@
+Bash Script Name: 
+shift_sched.sh
+
+Prompt:
+Name? 
+Shift? (morning, mid, night)
+Team? (A1-A3,B1-B3)
+
+Conditions:
+Name? (if input is "print", print table of schedules then exit)
+Each shift per team can only have 2 people max, exit when exceeding
+
+Table Format:
+<Team>
+  <Name>, <Shift>, <Time>
+
+Values:
+morning, 6am-3pm
+mid, 2pm-11pm
+night, 10pm-7am
