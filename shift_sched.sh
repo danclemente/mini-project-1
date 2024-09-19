@@ -37,8 +37,32 @@ user_prompt() {
       *) echo "Invalid selection. Please enter a number between 1 and 6." ; return ;;
   esac
 
-  # Display the input for now
-  echo -e "\n--- User Input ---"
+  # Path to the count file
+  count_file="Database/$team/$shift/count"
+
+  # Check if the count file exists, if not, create it with value 0
+  if [ ! -f "$count_file" ]; then
+    echo 0 > "$count_file"
+  fi
+
+  # Read the current count
+  current_count=$(cat "$count_file")
+
+  # Check if the shift is already full
+  if [ "$current_count" -ge 2 ]; then
+    echo "Error: This shift for team $team is already full. Only 2 people allowed per shift."
+    exit 1
+  fi
+
+  # If not yet full, increment the count and add the user to the list
+  ((current_count++))
+  echo "$current_count" > "$count_file"   
+
+  # Add the user to the list file
+  echo "$name" >> "Database/$team/$shift/list"
+
+  # Display
+  echo -e "\n--- User Added Successfully ---"
   echo "Name: $name"
   echo "Shift: $shift"
   echo "Team: $team"
